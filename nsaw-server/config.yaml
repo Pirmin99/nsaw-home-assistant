@@ -1,0 +1,25 @@
+name: not-so-advanced-war server
+# Set by the release workflow; the image tag Home Assistant pulls.
+version: "0.1.0"
+slug: nsaw_server
+description: Authoritative game server for not-so-advanced-war
+arch:
+  - aarch64
+  - amd64
+image: ghcr.io/pirmin99/{arch}-nsaw-server
+startup: application
+boot: auto
+init: true
+ports:
+  7878/tcp: 7878
+ports_description:
+  7878/tcp: Game server (WebSocket)
+# Match records go to /config/matches, which is
+# /addon_configs/<id>_nsaw_server/matches on the host (Samba share "addon_configs").
+map:
+  - addon_config:rw
+options:
+  record_matches: true
+schema:
+  seed: int(0,)?
+  record_matches: bool

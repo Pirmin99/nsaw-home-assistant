@@ -1,6 +1,6 @@
 name: not-so-advanced-war server
 # Set by the release workflow; the image tag Home Assistant pulls.
-version: "0.6.0"
+version: "0.7.0"
 slug: nsaw_server
 description: Authoritative game server for not-so-advanced-war
 arch:
